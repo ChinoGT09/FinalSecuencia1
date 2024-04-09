@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Captura de Datos - Pedido</title>
+</head>
+<body>
+
+    <div class="w3-bar w3-green">
+
+        <a href="UsuarioCaptura.html">Usuarios</a>
+        <a href="Producto.html">Producto</a>
+        <a href="Pedido.html">Pedido</a>
+        <a href="Tablas.html">Tabla</a>
+    </div>
+
+    <h2>Formulario de Pedido</h2>
+
+    <form action="" id="Pedido" class="w3-containe">
+
+        <label for="usuario">Usuario:</label>
+        <select id="usuario" name="usuario">
+            <option value="usuario1">Usuario 1</option>
+            <option value="usuario2">Usuario 2</option>
+            <option value="usuario3">Usuario 3</option>
+            <option value="usuario4">Usuario 4</option>
+        </select>
+        <input class="w3-input">
+
+        <label for="producto">Producto:</label>
+        <select id="producto" name="producto">
+            <option value="producto1">Producto 1</option>
+            <option value="producto2">Producto 2</option>
+            <option value="producto3">Producto 3</option>
+            <option value="producto4">Producto 4</option>
+            
+        </select>
+        <input class="w3-input">
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="text" class="w3-input" id="cantidad" name="cantidad" required>
+
+        <input type="submit" class="w3-input" id="RealizarPedido" value="Realizar Pedido">
+        <p id="mip"></p>
+    </form>
+
+    <script>
+        //http://localhost/xampp/htdocs/Tarea/Pedido.html
+
+        window.onload = function () {
+            document.getElementById("RealizarPedido").onclick = function (event) {
+                event.preventDefault();
+                let Usuario = document.getElementById("usuario").value + "01";
+                let Producto = document.getElementById("producto").value + "01";
+                let Cantidad = document.getElementById("cantidad").value + "01";
+
+                let parametros = "?usuario=" + Usuario + "&producto=" + Producto + "&cantidad=" + Cantidad;
+
+                let request = new Request('recibeformulario2.php' + parametros,
+                    {
+                        method: 'get',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                    });
+                fetch(request).then(function (returnedValue) {
+                    if (returnedValue.ok) {
+                        console.log("operacion correcta");
+                        returnedValue.text().then((txt) => {
+                            console.log('muestro respuesta: ', txt);
+                            document.write('recibo de regreso: ', txt);
+                        });
+                    }
+                }).catch(function (err) {
+                    console.log(err);
+                });
+            }
+        };
+    </script>
+</body>
+</html>

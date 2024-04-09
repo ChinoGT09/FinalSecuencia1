@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Captura de Datos - Producto</title>
+</head>
+<body>
+
+    <div class="w3-bar w3-red">
+        <a href="UsuarioCaptura.html">Usuarios</a>
+        <a href="Producto.html">Producto</a>
+        <a href="Pedido.html">Pedido</a>
+        <a href="Tablas.html">Tabla</a>
+    </div>
+
+    <h2>Formulario de Producto</h2>
+
+    <form action="" id="Producto" class="w3-containe">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="w3-input" id="nombre" name="nombre" required>
+
+        <label for="precio">Precio:</label>
+        <input type="number" class="w3-input" id="precio" name="precio">
+
+        <label for="modelos">Modelos:</label>
+        <input type="text" class="w3-input" id="modelos" name="Modelos">
+
+        <label for="stock">Stock:</label>
+        <input type="number" class="w3-input" id="stock" name="stock">
+
+        <input type="submit" class="w3-input" id="Enviar" value="Guardar">
+        <p id="mip"></p>
+    </form>
+
+
+    <script>
+        //http://localhost/xampp/htdocs/Tarea/Producto.html
+
+        window.onload = function () {
+            document.getElementById("Enviar").onclick = function (event) {
+                event.preventDefault();
+                let Nombre = document.getElementById("nombre").value + "01";
+                let Precio = document.getElementById("precio").value + "01";
+                let Modelos = document.getElementById("modelos").value + "01";
+                let Stock = document.getElementById("stock").value + "01";
+
+                let parametros = "?nombre=" + Nombre + "&precio=" + Precio + "&modelos=" + Modelos +
+                    "&stock=" + Stock;
+
+                let request = new Request('recibeformulario1.php' + parametros,
+                    {
+                        method: 'get',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                    });
+                fetch(request).then(function (returnedValue) {
+                    if (returnedValue.ok) {
+                        console.log("operacion correcta");
+                        returnedValue.text().then((txt) => {
+                            console.log('muestro respuesta: ', txt);
+                            document.write('recibo de regreso: ', txt);
+                        });
+                    }
+                }).catch(function (err) {
+                    console.log(err);
+                });
+            }
+        };
+    </script>
+</body>
+</html>

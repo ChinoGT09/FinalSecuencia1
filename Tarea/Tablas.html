@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body>
+
+    <div class="w3-bar w3-orange">
+        <a href="UsuarioCaptura.html">Usuarios</a>
+        <a href="Producto.html">Producto</a>
+        <a href="Pedido.html">Pedido</a>
+        <a href="Tablas.html">Pedido</a>
+      </div>
+
+    <table class="w3-table w3-striped w3-bordered w3-container w3-light-green">
+        
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>IdEmpleado</th>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+
+                <tbody id="UsuarioCaptura">
+                
+            </tbody>
+        </thead>
+
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precios</th>
+                <th>Modelo</th>
+                <th>Stock</th>
+            </tr>
+    
+                <tbody id="Producto">
+                    
+            </tbody>
+        </thead>
+
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+            </tr>
+    
+                <tbody id="Pedido1">
+                    
+            </tbody>
+        </thead>
+
+    </table>
+</body>
+    <script>
+        let Usuario=[
+
+        {
+            Nombre: "Angel",
+            IdEmpleado: 200589,
+            Email: "chinmontejo00001@gmail.com",
+            Password: "Entrega09"
+        },
+        {
+            Nombre: "Eduardo",
+            IdEmpleado: 200654,
+            Email: "ing258E@hotmail.com",
+            Password: "Uni654*"
+        },
+        {
+            Nombre: "Karla",
+            IdEmpleado: 20485,
+            Email: "facundo27@outlook.mx",
+            Password: "Class618"
+        },
+        {
+            Nombre: "Rubi",
+            IdEmpleado: 206154,
+            Email: "nautiFT789@yahoo.com",
+            Password: "Unacar789"
+        },
+        {
+            Nombre: "Rubi",
+            IdEmpleado: 206154,
+            Email: "nautiFT789@yahoo.com",
+            Password: "Unacar789"
+        }
+
+    ]
+
+        let s=''
+        Usuario.forEach(e=> {
+            let b=document.getElementById("UsuarioCaptura")
+            b.innerHTML=s,
+
+            s +=`
+            <tr>
+                
+                <td>${e.Nombre}</td>
+                <td>${e.IdEmpleado}</td>
+                <td>${e.Email}</td>
+                <td>${e.Password}</td>
+                
+                </tr>
+                `
+            console.log(s)
+        
+        });
+    </script>
+
+<script>
+    let Producto1=[
+
+    {
+        nombre: "Angel",
+        Precio: 78900,
+        Modelo: "chinmontejo00001@gmail.com",
+        Stock: "Entrega09"
+    },
+    {
+        nombre: "Eduardo",
+        Precio: 21000,
+        Modelo: "chinmontejo00001@gmail.com",
+        Stock: "Entrega09"
+    },
+    {
+        nombre: "Karla",
+        Precio: 9600,
+        Modelo: "chinmontejo00001@gmail.com",
+        Stock: "Entrega09"
+    },
+    {
+        nombre: "Rubi",
+        Precio: 15999,
+        Modelo: "chinmontejo00001@gmail.com",
+        Stock: "Entrega09"
+    },
+    {
+        nombre: "Angel",
+        Precio: 200589,
+        Modelo: "chinmontejo00001@gmail.com",
+        Stock: "Entrega09"
+    }
+
+]
+
+    let p=''
+    Producto1.forEach(e=> {
+        let b=document.getElementById("Producto")
+        b.innerHTML=p,
+
+        p +=`
+        <tr>
+            
+            <td>${e.nombre}</td>
+            <td>${e.Modelo}</td>
+            <td>${e.Email}</td>
+            <td>${e.Password}</td>
+            
+            </tr>
+            `
+        console.log(p)
+    
+    });
+</script>
+
+<script>
+    let Pedido=[
+
+    {
+        Usuario: 20485,
+        Producto: "Producto 2",
+        Cantidad: 150,
+    },
+    {
+        Usuario: 206154,
+        Producto: "Producto 2",
+        Cantidad: 505,
+    },    
+    {
+        Usuario: 200589,
+        Producto: "Producto 1",
+        Cantidad: 10,
+    },
+    {
+        Usuario: 200589,
+        Producto: "Producto 1",
+        Cantidad: 10,
+    }
+
+
+]
+
+    let r=''
+    Pedido.forEach(e=> {
+        let b=document.getElementById("Pedido1")
+        b.innerHTML=r,
+
+        r +=`
+        <tr>
+            
+            <td>${e.Usuario}</td>
+            <td>${e.Producto}</td>
+            <td>${e.Cantidad}</td>
+            
+            </tr>
+            `
+        console.log(r)
+    
+    });
+</script>
+
+</body>
+</html>
